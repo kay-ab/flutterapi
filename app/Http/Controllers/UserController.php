@@ -45,13 +45,11 @@ class UserController extends Controller
 
         $api = $user->createToken('Api Token')->accessToken;
 
-        $result = [
+        return response()->json([
             'status'  => true,
             'message' => 'User created Successfully.',
             'api'     => $api
-        ];
-
-        return $result;
+        ]);
     }
 
     public function redirect () {

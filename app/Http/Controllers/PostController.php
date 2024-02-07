@@ -24,7 +24,7 @@ class PostController extends Controller
             'description' => $request->input('description')
         ]);
 
-        $arr = ['status' => true, 'message' => 'Post Created Successfully.'];
+        $arr = ['status' => true, 'message' => 'Post Created Successfully.', 'api' => ''];
 
         return $arr;
     }
@@ -39,15 +39,21 @@ class PostController extends Controller
             'description' => $request->input('description')
         ]);
 
-        $arr = ['status' => true, 'message' => 'Post Updated Successfully.'];
+        $arr = ['status' => true, 'message' => 'Post Updated Successfully.', 'api' => ''];
 
         return $arr;
+    }
+
+    public function show($id) {
+        $post = Post::find($id);
+
+        return $post;
     }
 
     public function destroy($id) {
         Post::destroy($id);
 
-        $arr = ['status' => true, 'message' => 'Post deleted Successfully.'];
+        $arr = ['status' => true, 'message' => 'Post deleted Successfully.', 'api' => ''];
 
         return $arr;
     }
